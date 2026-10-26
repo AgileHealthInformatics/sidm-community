@@ -1,12 +1,12 @@
 ---
 {
   "layout": "page",
-  "title": "Contribute to the work",
-  "description": "A small, well-grounded contribution can improve a shared resource.",
+  "title": "Proposed participation model",
+  "description": "How participation could work if SIDM agrees to establish the service.",
   "resource_id": "contribute-index",
   "section": "contribute",
   "status": "working-draft",
-  "owner": "SIDM editorial team (assignment pending)",
+  "owner": "Proposal author: Dr Tito Castillo",
   "contributors": [],
   "last_updated": "2026-10-26",
   "last_reviewed": null,
@@ -19,26 +19,25 @@
 }
 ---
 
-You can suggest a question, report a problem, verify a source reference, explain implementation experience or review a draft. You do not need to join a committee or buy an AI subscription.
+This page describes a suggested approach for discussion. It is not an invitation to join an active enquiry or submit work to an established SIDM editorial team.
 
-## With a GitHub account
+## Possible ways to participate
 
-{% if site.repository_url != '' %}
-[Submit an enquiry or correction]({{ site.repository_url }}/issues/new/choose). For a direct edit, use a branch or fork and submit a pull request. Explain what changed and why, and identify any AI assistance.
-{% else %}
-The repository address will be added before launch. Maintainers should set `repository_url` in the site configuration to activate the contribution link.
-{% endif %}
+Participants could suggest questions, verify source references, contribute implementation experience or review drafts. Contributions could range from checking a single claim to helping convene an enquiry. Participation would not require purchasing an AI subscription.
 
-## Without a GitHub account
+## A route through GitHub
 
-{% if site.contact_email != '' %}
-[Contact the editorial team](mailto:{{ site.contact_email }}). Include the page title, your suggested change and supporting sources. State how you wish to be credited.
-{% else %}
-An editorial contact must be appointed before launch. Until then, bring your contribution to the convenor of a SIDM discussion or review session; this starter site does not yet operate a submission service.
-{% endif %}
+If agreed, repository issues and pull requests could support proposals, corrections and direct edits. Named editors would need to review submissions and distinguish individual contributions from agreed positions.
 
-An editor can submit an agreed contribution on your behalf and record your preferred attribution. Do not send restricted material or personal health information.
+## A route without GitHub
 
-## What happens next
+An agreed editorial contact or facilitated review session could enable contributions from people who do not use GitHub. An editor could record those contributions with permission and appropriate attribution. No public submission contact or response commitment is established by this demonstrator.
 
-The editorial team checks scope and assigns an owner. A reviewer examines the evidence and the proposed wording. Accepted changes are published with their status visible; unresolved differences remain documented. No response deadline is promised until the team agrees one.
+## Proposed review process
+
+An editorial coordinator would assess scope and identify an owner. A reviewer would check the evidence and wording. Accepted material could then be published with a clear status and unresolved differences recorded.
+
+## Feedback on this proposal
+
+For discussion with SIDM, consider whether these routes would be accessible, who could maintain them and what support would be needed. This proposal does not appoint editors or commit SIDM to operating these arrangements.
+

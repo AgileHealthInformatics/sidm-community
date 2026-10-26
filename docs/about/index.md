@@ -1,12 +1,12 @@
 ---
 {
   "layout": "page",
-  "title": "About SIDM",
-  "description": "Connecting standards expertise with health and care practice.",
+  "title": "About this proposal",
+  "description": "A personal proposal for SIDM consideration, not an official SIDM or BCS website.",
   "resource_id": "about-index",
   "section": "about",
   "status": "working-draft",
-  "owner": "SIDM editorial team (assignment pending)",
+  "owner": "Proposal author: Dr Tito Castillo",
   "contributors": [],
   "last_updated": "2026-10-26",
   "last_reviewed": null,
@@ -19,14 +19,19 @@
 }
 ---
 
-SIDM stands for Standards, Interoperability and Data Management. Its discussions place it within the BCS Faculty of Health and Care, connecting standards communities with the wider health and care workforce.
+Dr Tito Castillo prepared this demonstrator with AI assistance to illustrate a possible community approach for Standards, Interoperability and Data Management (SIDM).
 
-This proposed community repository supports accessible learning, collaborative enquiry and practical outputs. It includes clinical, technical, data and other professional perspectives. It does not claim to be a standards authority or to speak for other organisations.
+The proposal explores how a shared repository and public website could connect standards expertise with health and care practice. SIDM's relationship with the BCS Faculty of Health and Care provides context; it does not confer approval on this demonstrator.
 
-## Working with related communities
+## Possible collaboration
 
-The proposed approach is to invite relevant contributions from HL7 UK, PRSB, CHASCIS, InterOpen and BCS peer communities, including primary care and clinical safety groups. Each enquiry should identify the communities whose expertise is needed. References here do not establish a partnership or endorsement.
+HL7 UK, PRSB, CHASCIS, InterOpen and relevant BCS communities are mentioned as potential sources of expertise and collaboration. Their inclusion does not imply that they have agreed to participate, support or endorse this proposal.
 
-## How the work is governed
+## Proposed arrangements
 
-Read the [editorial policy]({{ '/about/editorial-policy/' | relative_url }}), [maintenance arrangements]({{ '/about/maintenance/' | relative_url }}) and [participation guide]({{ '/contribute/' | relative_url }}). These are proposed arrangements for review before launch.
+The [editorial policy]({{ '/about/editorial-policy/' | relative_url }}), [maintenance arrangements]({{ '/about/maintenance/' | relative_url }}) and [participation model]({{ '/contribute/' | relative_url }}) are draft suggestions. They do not establish an editorial team, appoint resource owners or launch a service.
+
+## Status of the demonstrator
+
+This is publicly accessible proposal material. It is not an official SIDM or BCS publication, membership service or approved work programme. Adoption, ownership, branding and operational responsibilities remain matters for agreement.
+

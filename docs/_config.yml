@@ -1,5 +1,5 @@
-title: SIDM
-description: Standards, Interoperability and Data Management
+title: SIDM proposal demonstrator
+description: A proposed SIDM community website for discussion, not an operational service
 url: ""
 baseurl: ""
 repository_url: ""
@@ -13,3 +13,4 @@ defaults:
       path: ""
     values:
       layout: page
+
