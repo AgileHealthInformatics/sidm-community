@@ -21,11 +21,33 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Set Jekyll base path
+        env:
+          SITE_BASE: ${{ steps.pages.outputs.base_path }}
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          import re
+          from pathlib import Path
+
+          path = Path("docs/_config.yml")
+          config = path.read_text(encoding="utf-8")
+          replacement = "baseurl: " + json.dumps(os.environ["SITE_BASE"])
+          config, count = re.subn(
+              r"(?m)^baseurl:.*$",
+              lambda match: replacement,
+              config,
+          )
+          if count != 1:
+              raise SystemExit("Expected exactly one baseurl setting")
+          path.write_text(config, encoding="utf-8")
+          PY
+
       - uses: actions/jekyll-build-pages@v1
         with:
           source: ./docs
           destination: ./_site
-          baseurl: ${{ steps.pages.outputs.base_path }}
       - name: Check generated links
         env:
           SITE_BASE: ${{ steps.pages.outputs.base_path }}
