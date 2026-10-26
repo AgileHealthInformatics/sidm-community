@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ page.title | escape }} | {{ site.title | escape }}</title>
+<meta name="description" content="{{ page.description | escape }}">
+<link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header><div class="shell masthead"><a class="brand" href="{{ '/' | relative_url }}">SIDM<span>Standards, Interoperability<br>and Data Management</span></a><span class="edition">Community repository · starter edition</span></div>
+<nav class="shell" aria-label="Main navigation">{% for item in site.data.navigation %}<a href="{{ item.url | relative_url }}"{% if page.url == item.url %} aria-current="page"{% endif %}>{{ item.title }}</a>{% endfor %}</nav></header>
+<main id="main" class="shell"><div class="intro"><p class="eyebrow">{{ page.section | replace: '-', ' ' | escape }}</p><h1>{{ page.title | escape }}</h1><p class="lead">{{ page.description | escape }}</p><span class="badge">{{ page.status | replace: '-', ' ' | escape }}</span></div>
+<div class="notice">Proposal for SIDM review. This starter edition does not represent an approved SIDM programme or a BCS position.</div>
+<article>{{ content }}</article>
+{% unless page.index_page %}<aside class="metadata" aria-label="Resource information"><h2>About this resource</h2><dl><dt>Identifier</dt><dd>{{ page.resource_id | escape }}</dd><dt>Owner</dt><dd>{{ page.owner | escape }}</dd><dt>Updated</dt><dd>{{ page.last_updated }}</dd><dt>Last substantive review</dt><dd>{% if page.last_reviewed %}{{ page.last_reviewed }}{% else %}Not yet reviewed{% endif %}</dd><dt>Next review</dt><dd>{{ page.next_review }}</dd><dt>AI assistance</dt><dd>{{ page.ai_assistance | escape }}</dd></dl>
+{% if page.contributors.size > 0 %}<p>Contributors: {{ page.contributors | join: ', ' | escape }}</p>{% endif %}
+{% if page.source_versions.size > 0 %}<h3>Source versions</h3><ul>{% for source in page.source_versions %}<li>{{ source | escape }}</li>{% endfor %}</ul>{% endif %}</aside>{% endunless %}
+</main><footer><div class="shell"><p>Connect expertise. Examine evidence. Build shared resources.</p><p><a href="{{ '/contribute/' | relative_url }}">Contribute</a> · <a href="{{ '/about/editorial-policy/' | relative_url }}">Editorial policy</a> · <a href="{{ '/about/privacy/' | relative_url }}">Privacy and reuse</a> · <a href="{{ '/topics/' | relative_url }}">Topic index</a>{% if site.repository_url != '' %} · <a href="{{ site.repository_url | escape }}">Repository</a>{% endif %}</p><small>Independent starter design. No official logo or organisational endorsement implied.</small></div></footer>
+</body></html>

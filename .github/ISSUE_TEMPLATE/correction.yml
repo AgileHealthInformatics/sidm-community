@@ -1,0 +1,27 @@
+name: Suggest a correction
+description: Which page or claim needs changing, why, and what evidence supports the correction?
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Your contribution
+      description: Which page or claim needs changing, why, and what evidence supports the correction?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sources and context
+      description: Include versions and links where possible. Do not upload restricted material.
+  - type: textarea
+    id: participation
+    attributes:
+      label: Participation and attribution
+      description: How would you like to contribute, and how should you be credited?
+  - type: checkboxes
+    id: disclosure
+    attributes:
+      label: Public disclosure
+      options:
+        - label: This contribution is suitable for a public repository and contains no confidential or personal health information.
+          required: true

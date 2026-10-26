@@ -1,0 +1,21 @@
+name: Review dates and external links
+on:
+  schedule:
+    - cron: '20 7 1 * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python scripts/review_dates.py > review-report.txt
+      - run: python scripts/external_links.py > link-report.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: maintenance-reports
+          path: '*-report.txt'

@@ -1,0 +1,15 @@
+title: SIDM
+description: Standards, Interoperability and Data Management
+url: ""
+baseurl: ""
+repository_url: ""
+contact_email: ""
+markdown: kramdown
+highlighter: rouge
+permalink: pretty
+exclude: [README.md]
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: page

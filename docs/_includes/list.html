@@ -1,0 +1,6 @@
+<div class="cards">
+{% assign entries = site.pages | sort: 'title' %}
+{% for entry in entries %}{% if entry.section == include.section and entry.index_page != true %}
+<a class="card" href="{{ entry.url | relative_url }}"><span class="eyebrow">{{ entry.status | replace: '-', ' ' | escape }}</span><h2>{{ entry.title | escape }}</h2><p>{{ entry.description | escape }}</p></a>
+{% endif %}{% endfor %}
+</div>
