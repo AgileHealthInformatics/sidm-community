@@ -17,7 +17,10 @@
   ],
   "source_versions": [],
   "ai_assistance": "AI-assisted starter content; subject to human review.",
-  "permalink": "/resources/review-checklist/"
+  "permalink": "/resources/review-checklist/",
+  "project_ids": [
+    "ENQ-001"
+  ]
 }
 ---
 

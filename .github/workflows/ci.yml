@@ -8,16 +8,26 @@ permissions:
 jobs:
   check:
     name: Build and validate
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: python scripts/validate_content.py
+      - run: python scripts/project_automation.py validate
+      - run: python -m unittest discover -s tests -v
+      - name: Prepare offline discussion state
+        env:
+          PROJECT_DISCUSSIONS_ENABLED: 'false'
+        run: python scripts/project_automation.py sync
+      - name: Exercise a project-site base path
+        env:
+          SITE_BASE: /sidm-ci
+        run: python scripts/set_base_path.py
       - uses: actions/jekyll-build-pages@v1
         with:
           source: ./docs
           destination: ./_site
           build_revision: ${{ github.sha }}
-      - run: python scripts/check_site.py _site
+      - run: python scripts/check_site.py _site --baseurl /sidm-ci

@@ -6,3 +6,6 @@ vendor/
 __pycache__/
 .DS_Store
 .env
+
+# Derived from GitHub Discussions during a build; never commit.
+docs/_data/project_discussions.json

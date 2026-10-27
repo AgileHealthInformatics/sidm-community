@@ -1,0 +1,56 @@
+name: Create project proposal
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: Project title (up to 140 characters)
+        required: true
+        type: string
+      question:
+        description: The question to investigate
+        required: true
+        type: string
+      scope:
+        description: Scope, boundaries and intended output
+        required: true
+        type: string
+      audience:
+        description: Intended audience and contributors
+        required: true
+        type: string
+      ready_for_discussion:
+        description: Create a proposal discussion after this PR is merged (if enabled)
+        required: true
+        default: true
+        type: boolean
+permissions:
+  contents: read
+concurrency:
+  group: create-project-proposals
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate existing project associations
+        run: python scripts/project_automation.py validate
+      - name: Prepare project and open pull request
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROJECT_TITLE: ${{ inputs.title }}
+          PROJECT_QUESTION: ${{ inputs.question }}
+          PROJECT_SCOPE: ${{ inputs.scope }}
+          PROJECT_AUDIENCE: ${{ inputs.audience }}
+          PROJECT_READY: ${{ inputs.ready_for_discussion }}
+        run: python scripts/project_automation.py create

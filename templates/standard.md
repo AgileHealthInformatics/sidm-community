@@ -14,7 +14,8 @@
   "topics": [],
   "source_versions": [],
   "ai_assistance": "Describe assistance and verification, or state none.",
-  "permalink": "/REPLACE-WITH-STABLE-PATH/"
+  "permalink": "/REPLACE-WITH-STABLE-PATH/",
+  "project_ids": []
 }
 ---
 

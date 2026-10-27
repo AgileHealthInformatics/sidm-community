@@ -11,39 +11,32 @@ concurrency:
 jobs:
   build:
     if: vars.PUBLISH_SITE == 'true' && github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      discussions: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: python scripts/validate_content.py
+      - run: python scripts/project_automation.py validate
+      - run: python -m unittest discover -s tests -v
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+      - name: Resolve project discussions
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PROJECT_DISCUSSIONS_ENABLED: ${{ vars.PROJECT_DISCUSSIONS_ENABLED }}
+          PROJECT_DISCUSSION_CATEGORY: ${{ vars.PROJECT_DISCUSSION_CATEGORY || 'General' }}
+          SITE_URL: ${{ steps.pages.outputs.base_url }}
+        run: python scripts/project_automation.py sync
       - name: Set Jekyll base path
         env:
           SITE_BASE: ${{ steps.pages.outputs.base_path }}
-        run: |
-          python - <<'PY'
-          import json
-          import os
-          import re
-          from pathlib import Path
-
-          path = Path("docs/_config.yml")
-          config = path.read_text(encoding="utf-8")
-          replacement = "baseurl: " + json.dumps(os.environ["SITE_BASE"])
-          config, count = re.subn(
-              r"(?m)^baseurl:.*$",
-              lambda match: replacement,
-              config,
-          )
-          if count != 1:
-              raise SystemExit("Expected exactly one baseurl setting")
-          path.write_text(config, encoding="utf-8")
-          PY
-
+        run: python scripts/set_base_path.py
       - uses: actions/jekyll-build-pages@v1
         with:
           source: ./docs
@@ -52,12 +45,17 @@ jobs:
         env:
           SITE_BASE: ${{ steps.pages.outputs.base_path }}
         run: python scripts/check_site.py _site --baseurl "$SITE_BASE"
+      - name: Save project discussion mapping
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-discussion-links
+          path: docs/_data/project_discussions.json
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       pages: write
       id-token: write

@@ -1,0 +1,14 @@
+{
+  "ENQ-001": {
+    "title": "AI-assisted comparison of data definitions",
+    "summary": "Proposed pilot to compare the treatment of one information concept across selected specifications.",
+    "question": "Can a transparent AI-assisted method help practitioners identify and assess differences in data definitions across a small, agreed set of specifications?",
+    "scope": "Select one information concept and two or three specifications that participants may lawfully process. Source selection, ownership and participation remain to be agreed.",
+    "audience": "Clinical, technical, data and other health and care practitioners with relevant experience.",
+    "status": "proposed",
+    "page_path": "docs/enquiries/data-definitions/index.md",
+    "permalink": "/enquiries/data-definitions/",
+    "discussion_requested": false,
+    "discussion_number": null
+  }
+}

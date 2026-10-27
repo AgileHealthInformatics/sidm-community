@@ -41,3 +41,10 @@ An editorial coordinator would assess scope and identify an owner. A reviewer wo
 
 For discussion with SIDM, consider whether these routes would be accessible, who could maintain them and what support would be needed. This proposal does not appoint editors or commit SIDM to operating these arrangements.
 
+
+
+## Project proposal automation
+
+The demonstrator includes a maintainer-operated project form under **Actions → Create project proposal**. It prepares a project page and register entry as a pull request. Merging a proposal can establish its GitHub discussion if discussion automation has been enabled. The discussion is about the proposal, not an approved programme.
+
+[How projects and discussions are connected]({{ '/about/project-automation/' | relative_url }}).

@@ -1,0 +1,26 @@
+{% if page.project_id %}
+{% assign project = site.data.projects[page.project_id] %}
+{% assign discussion = site.data.project_discussions[page.project_id] %}
+<section class="metadata" aria-label="Project discussion and related resources">
+<h2>Discussion of this proposal</h2>
+<p><strong>Project {{ page.project_id | escape }}</strong> · {{ project.status | escape }}</p>
+{% if discussion.state == 'linked' %}
+<p><a href="{{ discussion.url | escape }}">Discuss this proposal on GitHub</a> (discussion #{{ discussion.number }})</p>
+<p>A GitHub account is needed to contribute. Discussion does not imply approval of an operational programme.</p>
+{% else %}
+<p>Discussion space not yet established or not connected in this preview.</p>
+{% endif %}
+<h2>Related resources</h2>
+{% assign related_count = 0 %}
+<ul>{% assign entries = site.pages | sort: 'title' %}{% for entry in entries %}{% if entry.project_ids contains page.project_id and entry.url != page.url %}
+{% assign related_count = related_count | plus: 1 %}
+<li><a href="{{ entry.url | relative_url }}">{{ entry.title | escape }}</a> · {{ entry.status | replace: '-', ' ' | escape }}</li>
+{% endif %}{% endfor %}</ul>
+{% if related_count == 0 %}<p>No related resources have been added yet.</p>{% endif %}
+</section>
+{% elsif page.project_ids.size > 0 %}
+<aside class="metadata" aria-label="Related projects"><h2>Related projects</h2><ul>
+{% for pid in page.project_ids %}{% assign project = site.data.projects[pid] %}
+<li><a href="{{ project.permalink | relative_url }}">{{ pid | escape }}: {{ project.title | escape }}</a></li>
+{% endfor %}</ul></aside>
+{% endif %}
