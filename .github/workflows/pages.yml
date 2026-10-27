@@ -50,7 +50,7 @@ jobs:
         with:
           name: project-discussion-links
           path: docs/_data/project_discussions.json
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: _site
   deploy:
