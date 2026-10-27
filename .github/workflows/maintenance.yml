@@ -15,7 +15,7 @@ jobs:
           python-version: '3.12'
       - run: python scripts/review_dates.py > review-report.txt
       - run: python scripts/external_links.py > link-report.txt
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: maintenance-reports
           path: '*-report.txt'
